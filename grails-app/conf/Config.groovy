@@ -113,3 +113,24 @@ log4j = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
+
+
+// Added by the Spring Security Core plugin:
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.choremart.security.ChoreUser'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.choremart.security.ChoreUserRole'
+grails.plugin.springsecurity.authority.className = 'com.choremart.security.Role'
+grails.plugin.springsecurity.requestMap.className = 'com.choremart.security.RequestMap'
+grails.plugin.springsecurity.securityConfigType = 'Requestmap'
+grails.plugin.springsecurity.controllerAnnotations.staticRules = [
+	'/':                              ['permitAll'],
+	'/index':                         ['permitAll'],
+	'/index.gsp':                     ['permitAll'],
+	'/**/js/**':                      ['permitAll'],
+	'/**/css/**':                     ['permitAll'],
+	'/**/images/**':                  ['permitAll'],
+	'/**/favicon.ico':                ['permitAll']
+]
+grails.plugin.springsecurity.successHandler.alwaysUseDefault = true
+grails.plugin.springsecurity.securityConfigType = "Annotation"
+grails.plugin.springsecurity.logout.postOnly = false
+
