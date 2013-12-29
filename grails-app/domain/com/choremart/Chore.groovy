@@ -1,11 +1,12 @@
 package com.choremart
 
+import com.choremart.security.ChoreUser
 import groovy.transform.ToString
 
 @ToString(includeNames=true)
 class Chore {
 
-	//ChoreUser user
+	ChoreUser user
 	String title
 	ChoreType choreType
 	String description
