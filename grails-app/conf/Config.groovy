@@ -120,7 +120,7 @@ grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.choremart.sec
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.choremart.security.ChoreUserRole'
 grails.plugin.springsecurity.authority.className = 'com.choremart.security.Role'
 grails.plugin.springsecurity.requestMap.className = 'com.choremart.security.RequestMap'
-grails.plugin.springsecurity.securityConfigType = 'Requestmap'
+//grails.plugin.springsecurity.securityConfigType = 'Requestmap'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/':                              ['permitAll'],
 	'/index':                         ['permitAll'],
@@ -130,6 +130,7 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/images/**':                  ['permitAll'],
 	'/**/favicon.ico':                ['permitAll']
 ]
+//grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/login/loginSuccess'
 grails.plugin.springsecurity.successHandler.alwaysUseDefault = true
 grails.plugin.springsecurity.securityConfigType = "Annotation"
 grails.plugin.springsecurity.logout.postOnly = false

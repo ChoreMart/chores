@@ -5,7 +5,6 @@ import com.choremart.security.ChoreUserRole
 import com.choremart.security.Role
 
 class BootStrap {
-    Role superAdmin
     def init = { servletContext ->
         createRole()
         createStateList()
@@ -14,7 +13,7 @@ class BootStrap {
     def destroy = {
     }
     void createRole() {
-        superAdmin = Role.findByAuthority("ROLE_SUPER_ADMIN")
+        Role superAdmin = Role.findByAuthority("ROLE_SUPER_ADMIN")
         if (!superAdmin) {
             superAdmin = new Role(authority: 'ROLE_SUPER_ADMIN').save(flush: true)
         }
@@ -26,7 +25,7 @@ class BootStrap {
             Address adminAdd = new Address(address1: "Lane 2, Block 35", city: "New York", state: State.findByAbbreviation('AL'),zip: '23456').save(flush: true)
             adminUser = new ChoreUser(username: 'admin', password: 'admin', enabled: true, accountExpired: false, accountLocked: false, passwordExpired: false,address: adminAdd).save(flush: true)
             //Map role to user
-            new ChoreUserRole(user: adminUser, role: superAdmin).save(flush: true)
+            new ChoreUserRole(choreUser: adminUser, role: Role.findByAuthority("ROLE_SUPER_ADMIN")).save(flush: true)
         }
     }
 
